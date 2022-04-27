@@ -2,6 +2,9 @@
 function welcome(){
     console.log("Welcome!");
 }
+function fun(message){
+    console.log(message);
+}
 
 function baseSuccess(success){
     console.log("[From logger]",new Date(),success);
@@ -14,11 +17,10 @@ function wait(time,message){
             console.log(message)
         },time)
 }
-let tempData ='hello'
 module.exports = {
     welcome : welcome,
     baseError:baseError,
     baseSuccess:baseSuccess,
     wait:wait,
-    data:tempData
+    fun:fun,
 }
