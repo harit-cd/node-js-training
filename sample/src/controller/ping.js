@@ -1,6 +1,6 @@
 
 let utilsping = require('../utils/utilsping');
-let responseBuilder = require('../helper/responseBuilder')
+let responseBuilder = require('../helper/responseBuilder');
 function ping(request,response){
    let data = utilsping.ping(request.query.number);
  response.send(responseBuilder.success({

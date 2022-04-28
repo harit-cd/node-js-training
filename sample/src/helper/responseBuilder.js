@@ -7,7 +7,13 @@ function success(data){
     }
     return value;
 }
-
+function values(value){
+    if(value==null)
+        return 'No record';
+   else
+      return value;
+}
 module.exports={
-    success
+    success,
+    values
 }

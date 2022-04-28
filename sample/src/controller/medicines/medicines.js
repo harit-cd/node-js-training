@@ -1,15 +1,16 @@
 
-let utilsping = require('../../utils/utilsping');
-let responseBuilder = require('../../helper/responseBuilder');
-
+const utilsping = require('../../utils/utilsping');
+const responseBuilder = require('../../helper/responseBuilder');
+const data = require('../../docs/medicineData.json');
 function ping(request,response){
-    console.log('Listing medicines');
-    let data = utilsping.ping(request.query.number);
-  response.send(responseBuilder.success({
-     "message":"sqaure of the given number",
-     "number":request.query.number,
-     "square": data    
- }));
+    let value = data.find((data)=> data.id == request.query.id )
+    if(value==null){
+        response.send(responseBuilder.success(data));
+    }
+    else{
+        response.send(responseBuilder.success(value));
+    }
+     
 }
 
 module.exports={

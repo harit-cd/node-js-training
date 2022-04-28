@@ -1,7 +1,10 @@
-const logger = require('./src/helper/logger');
-const constant = require('./src/helper/constant');
-const read = require('./src/read/read');
-const write = require('./src/write/write');
+// const logger = require('./src/helper/logger');
+// const constant = require('./src/helper/constant');
+// const read = require('./src/read/read');
+// const write = require('./src/write/write');
+
+
+
 const express = require('express');
 const ping = require('./src/controller/ping')
 const app = express();
