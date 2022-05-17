@@ -1,26 +1,21 @@
+const constant = require('./constant');
 
-function welcome(){
-    console.log("Welcome!");
+function success(data){
+    let value = {
+        "code":200,
+        "message":"The request is successful",
+        "data":data
+    }
+    return value
 }
-function fun(message){
-    console.log(message);
+function failure(message){
+    let value ={
+        "code":400,
+        "message":message
+    }
+    return value
 }
-
-function baseSuccess(success){
-    console.log("[From logger]",new Date(),success);
-}
-function baseError(error){
-    console.log("[From logger]",new Date(),error);
-}
-function wait(time,message){
-        setTimeout(()=>{
-            console.log(message)
-        },time)
-}
-module.exports = {
-    welcome : welcome,
-    baseError:baseError,
-    baseSuccess:baseSuccess,
-    wait:wait,
-    fun:fun,
+module.exports={
+    success,
+    failure
 }

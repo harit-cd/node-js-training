@@ -5,7 +5,6 @@ const medicines = require('./allRoutes/medicines');
 const employee = require('./allRoutes/employee');
 const details = require('./allRoutes/details');
 const router = express.Router();
-
 router.use('/godown',godown);
 router.use('/medicines',medicines);
 router.use('/employee',employee);

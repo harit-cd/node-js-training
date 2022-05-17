@@ -1,19 +1,15 @@
+const logger = require('./logger');
 
-function success(data){
-    let value = {
-        "code":200,
-        "message":"The request was succesful",
-        "data":data
-    }
-    return value;
+function list(data){
+    let result = logger.success(data);
+    return result;
 }
-function values(value){
-    if(value==null)
-        return 'No record';
-   else
-      return value;
+function error(messgae){
+    let result = logger.failure(messgae);
+    return result;
 }
+
 module.exports={
-    success,
-    values
+    list,
+    error
 }
