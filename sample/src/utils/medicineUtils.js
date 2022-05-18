@@ -1,7 +1,7 @@
-const medicineData = require('../src/docs/medicine.json');
+const medicineData = require('../docs/medicine.json');
 const ping = require('./ping');
-const responseBuilder = require('../src/helper/responseBuilder');
-const constant = require('../src/helper/constant');
+const responseBuilder = require('../helper/responseBuilder');
+const constant = require('../helper/constant');
 function add(body){
     let path ='src/docs/medicine.json';
     body['id']=medicineData.length+1;
@@ -14,7 +14,6 @@ function add(body){
 function list(data,body){
     let value=[];
     let num =0;
-    //console.log(body)
     if(body){
         for(let elem of medicineData){
             if(body.name){  
@@ -64,11 +63,11 @@ function expired(){
     console.log(date)
     for(let elem of medicineData){
         console.log('in for')
-        let currentDate = new Date(date);
+        let currentDate = new Date(today);
         let exp = elem.expiryDate;
         let expDate = new Date(exp);
         console.log('expDate'+expDate)
-        console.log('current'+expDate)
+        console.log('current '+currentDate)
         if(currentDate>expDate){
             console.log('in if')
             value.push(elem);

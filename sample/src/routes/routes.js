@@ -1,12 +1,7 @@
-
 const express = require('express');
-const godown = require('./allRoutes/godown');
-const medicines = require('./allRoutes/medicines');
-const employee = require('./allRoutes/employee');
-const details = require('./allRoutes/details');
 const router = express.Router();
-router.use('/godown',godown);
-router.use('/medicines',medicines);
-router.use('/employee',employee);
-router.use('/details',details);
+const medicineRoutes = require('./allRoutes/medicineRoutes');
+const ordersRoutes = require('./allRoutes/ordersRoutes');
+router.use('/medicines',medicineRoutes);
+router.use('/orders',ordersRoutes);
 module.exports=router;

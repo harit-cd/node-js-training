@@ -4,7 +4,7 @@
     "expiryDate": "12-20-2021",
     "manufactureDate": "20-10-2021",
     "company": "Cipla",
-    "unitPrice": "2",
+    "unitPrice": 2,
     "id": 1
   },
   {
@@ -12,7 +12,7 @@
     "expiryDate": "12-20-2021",
     "manufactureDate": "10-20-2021",
     "company": "Cipla",
-    "unitPrice": "10",
+    "unitPrice": 10,
     "id": 2
   },
   {
@@ -20,7 +20,7 @@
     "expiryDate": "11-20-2023",
     "manufactureDate": "1-20-2022",
     "company": "Lupin",
-    "unitPrice": "7",
+    "unitPrice": 7,
     "id": 3
   },
   {
@@ -28,7 +28,7 @@
     "expiryDate": "12-20-2021",
     "manufactureDate": "10-20-2021",
     "company": "Cipla",
-    "unitPrice": "2",
+    "unitPrice": 2,
     "id": 4
   },
   {
@@ -36,15 +36,15 @@
     "expiryDate": "20-12-2023",
     "manufactureDate": "1-20-2022",
     "company": "Lupin",
-    "unitPrice": "2",
+    "unitPrice": 2,
     "id": 5
   },
   {
-    "name": "Ketokonazole",
+    "name": "Ketoconazole",
     "expiryDate": "5-4-2020",
     "manufactureDate": "1-20-2019",
     "company": "Dr Reddy's Laboratories",
-    "unitPrice": "11",
+    "unitPrice": 11,
     "id": 6
   }
 ]

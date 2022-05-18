@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const medicineController = require('../../controllers/medicineController');
-const medicineMiddleware = require('../../src/middleware/medicineMiddleware')
+const medicineMiddleware = require('../../middleware/medicineMiddleware')
 router.post('/add',medicineMiddleware.repetationValidator,
                 medicineMiddleware.medicineValidator,medicineController.addMedicines);
 router.get('/byValue',medicineController.listMedicines);
