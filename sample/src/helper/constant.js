@@ -3,7 +3,10 @@ const validator ={
    valueExist:'The given data already exists!',
    notExist:'The given value does not exist!'
 }
-
+const medicine={
+    exceedQuantity:'The maximum quantity limit of medicine is 10 units'
+}
 module.exports={
-    validator
+    validator,
+    medicine
 }

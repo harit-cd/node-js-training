@@ -3,32 +3,63 @@
     "customerId": 1,
     "shopId": 1,
     "orderId": 1,
-    "medicine": [
+    "medicines": [
       {
         "id": 3,
         "quantity": 2
       },
       {
         "id": 2,
-        "quantity": 2
+        "quantity": 10
       }
     ],
-    "totalCost": 54
+    "totalCost": 114,
+    "date": "19-5-2022"
   },
   {
     "customerId": 2,
     "shopId": 2,
     "orderId": 2,
-    "medicine": [
+    "medicines": [
       {
-        "id": 3,
-        "quantity": 2
+        "id": 2,
+        "quantity": 7
+      },
+      {
+        "id": 5,
+        "quantity": 3
+      }
+    ],
+    "totalCost": 76,
+    "date": "19-5-2022"
+  },
+  {
+    "customerId": 3,
+    "shopId": 2,
+    "orderId": 3,
+    "medicines": [
+      {
+        "id": 6,
+        "quantity": 7
       },
       {
         "id": 4,
-        "quantity": 2
+        "quantity": 5
       }
     ],
-    "totalCost": 32
+    "totalCost": 87,
+    "date": "19-5-2022"
+  },
+  {
+    "customerId": 4,
+    "shopId": 2,
+    "orderId": 4,
+    "date": "19-5-2022"
+  },
+  {
+    "customerId": 4,
+    "shopId": 2,
+    "orderId": 5,
+    "date": "19-5-2022"
   }
 ]

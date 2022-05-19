@@ -3,10 +3,12 @@ const ping = require('./ping');
 const responseBuilder = require('../helper/responseBuilder');
 const constant = require('../helper/constant');
 const medicineData= require('../docs/medicine.json');
-const { colours } = require('nodemon/lib/config/defaults');
 function add(body){
     let path ='src/docs/orders.json';
+    let today = new Date;
+    let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
     body['orderId']=ordersData.length+1;
+    body['date']=date;
     ordersData.push(body);
     let data = JSON.stringify(ordersData,null,2);
     ping.writeData(path,data);
@@ -14,7 +16,7 @@ function add(body){
     return result;
 }
 function medicineCal(body){
-    let path ='src/docs/orders.json'
+    let path ='src/docs/orders.json';
     if(!body.orderId){
         let resp = responseBuilder.error(constant.validator.noValue);
         return resp
@@ -23,6 +25,7 @@ function medicineCal(body){
     console.log(orderId)
     let cost =0;
     let value=[];
+    let finalData=[];
     for(let elem of body.medicines){
         value.push(elem);
     }
@@ -30,8 +33,15 @@ function medicineCal(body){
         for(let elem of value){
             if(elem.id==data.id){
                 console.log('cost')
-                cost = elem.quantity*(cost + data.unitPrice);
-                console.log(cost)
+                if(elem.quantity<=10){
+                    cost = cost +(elem.quantity* data.unitPrice);
+                    console.log(cost)
+                }
+                else if(elem.quantity>10){
+                    let resp=responseBuilder.error(constant.medicine.exceedQuantity);
+                    return resp;
+                }
+                
             }
         }
     }
@@ -39,43 +49,127 @@ function medicineCal(body){
         console.log('loop')
         if(orderId==elem.orderId){
             console.log('orders')
-            elem['medicine']=value;
+            elem['medicines']=value;
             elem['totalCost']=cost;
-            
+            finalData.push(elem);
         }
     }
     let data = JSON.stringify(ordersData,null,2);
         ping.writeData(path,data);
+        let result = responseBuilder.list(finalData);
+        return result;
+}
+    
+function list(data,body){
+    let value=[];
+    let num =0;
+    if(body){
+        for(let elem of ordersData){
+            if(body.orderId){  
+                num=1;
+                if(body.orderId==elem.orderId)
+                    value.push(elem)
+            }
+            else if(body.customerId){
+                num=1;
+                if(body.customerId==elem.customerId)
+                    value.push(elem);
+            }
+            else if(body.shopId){
+                num=1;
+                if(body.shopId==elem.shopId)
+                    value.push(elem);
+            }
+            else if(body.date){
+                num=1;
+                if(body.date==elem.date)
+                    value.push(elem);
+            }
+            else if(body.medicineId){
+                num=1;
+                for(let mediVal of elem.medicines){
+                    if(mediVal.id==body.medicineId){
+                        value.push(elem);
+                    }
+                }
+                
+                }
+                
+            }
+        }
+    if(num==0){
+        let result = responseBuilder.list(data);
+        return result;
+    }
+    else if(num==1 && value==0){
+        let result = responseBuilder.error(constant.validator.notExist)
+        return result;
+    }
+    else{
         let result = responseBuilder.list(value);
         return result;
-    
-    
-    // let cost=[];
-    // let cost=0;
-    // let num=0;
-    // let path ='src/docs/orders.json';
-    // for(let elem of ordersData){
-    //     if(elem.orderId==orderId){
-    //         value.push(elem);
-    //         if(body.medicine){
-    //             for(let elem of body.medicine){
-    //                value['medicineId'+num]=elem.medicine.at(num);
-    //                num++;
-    //             }
-    //             for(let elem of medicineData){
-    //                for(let medicine of value){
-    //                    if(elem.id==medicine)
-    //                }
-    //             }
-    //         }
-    //     }
-    // }
-    
+    }  
+}
 
-   
+function change(body){
+    let id = body.orderId;
+    console.log(id);
+    let value=[];
+    // let medicineBody = [];
+    // for(let elem of body.medicines){
+    //     medicineBody.push(elem);
+    // }
+    let path ='src/docs/orders.json';
+    for(let elem of ordersData){
+        if(elem.orderId==id){
+            value.push(elem);
+            if(body.customerId)
+                elem.customerId=body.customerId;
+            if(body.date)
+                elem.date=body.date;
+            if(body.shopId)
+                elem.shopId=body.shopId
+            if(body.medicines){
+                elem.medicines=body.medicines;
+                console.log('medicines')
+                elem['totalCost']=changeMedicine(elem.medicines);
+            }
+        }
+}
+    let data = JSON.stringify(ordersData,null,2);
+    console.log(data)
+    ping.writeData(path,data);
+    let result = responseBuilder.list(value);
+    return result;
+}
+
+function changeMedicine(medicines){
+    let cost =0;
+    let value=[];
+    for(let elem of medicines){
+        value.push(elem);
+    }
+    for(let data of medicineData){
+        for(let elem of value){
+            if(elem.id==data.id){
+                console.log('cost')
+                if(elem.quantity<=10){
+                    cost = cost +(elem.quantity* data.unitPrice);
+                    console.log(cost);
+                }
+                else if(elem.quantity>10){
+                    let resp=responseBuilder.error(constant.medicine.exceedQuantity);
+                    return resp;
+                }    
+            }
+        }
+    }
+    return cost;
 }
 
 module.exports={
     add,
-    medicineCal
+    medicineCal,
+    list,
+    change
 }

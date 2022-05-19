@@ -12,8 +12,18 @@ function addMedicines(req,res){
     let result = ordersUtils.medicineCal(body);
     res.send(result)
 }
+function listOrder(req,res){
+    let result = ordersUtils.list(ordersData,req.body)
+    res.send(result);
+}
+function modifyOrders(req,res){
+    let result = ordersUtils.change(req.body);
+    res.send(result);
+}
 
 module.exports={
     addOrders,
-    addMedicines
+    addMedicines,
+    listOrder,
+    modifyOrders
 }

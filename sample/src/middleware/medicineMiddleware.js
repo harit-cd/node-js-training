@@ -2,7 +2,6 @@ const express = require('express');
 const medicineData = require('../docs/medicine.json');
 const responseBuilder = require('../helper/responseBuilder');
 const constant = require('../helper/constant');
-const e = require('express');
 
 function medicineValidator(req,res,next){
     let body = req.body;
