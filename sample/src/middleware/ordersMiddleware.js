@@ -3,12 +3,23 @@ const responseBuilder =require('../helper/responseBuilder');
 const constant = require('../helper/constant');
 function ordersValidator(req,res,next){
     let body = req.body;
-    if(!body.customerId){
+    if(body.customerId){
+        if(!body.shopId){
             let resp = responseBuilder.error(constant.validator.noValue);
             res.send(resp);
+        }
+        else
+            next();
     }
-    else
-    next();
+    else if(body.godownId){
+        if(!body.shopId){
+            let resp = responseBuilder.error(constant.validator.noValue);
+            res.send(resp);
+        }
+        else
+            next();
+    }
+    
 }
 function modifyValidator(req,res,next){
     let body = req.body;
@@ -22,14 +33,21 @@ function modifyValidator(req,res,next){
 function medicineValidator(req,res,next){
     let body = req.body;
     let value =[];
+    let num =0;
     value = body.medicines;
     for(let elem of value){
         if(!elem.id||!elem.quantity){
-            responseBuilder.error(constant.medicine)
+            num=1;
+            let resp = responseBuilder.error(constant.medicine.insufficientValue)
+            res.send(resp);
         }
     }
+    if(num==0)
+        next();
+    
 }
 module.exports={
     ordersValidator,
-    modifyValidator
+    modifyValidator,
+    medicineValidator
 }

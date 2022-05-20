@@ -26,6 +26,10 @@ function medicineCal(body){
     let cost =0;
     let value=[];
     let finalData=[];
+    // if(body.godownId){
+    //     let godownId = body.godownId;
+    // }
+    
     for(let elem of body.medicines){
         value.push(elem);
     }
@@ -85,18 +89,22 @@ function list(data,body){
                 if(body.date==elem.date)
                     value.push(elem);
             }
+            else if(body.godownId){
+                num=1;
+                if(body.godownId==elem.godownId)
+                    value.push(elem)
+            }
             else if(body.medicineId){
                 num=1;
+                console.log(elem.medicines)
                 for(let mediVal of elem.medicines){
                     if(mediVal.id==body.medicineId){
                         value.push(elem);
                     }
                 }
-                
-                }
-                
             }
         }
+    }
     if(num==0){
         let result = responseBuilder.list(data);
         return result;
@@ -128,7 +136,9 @@ function change(body){
             if(body.date)
                 elem.date=body.date;
             if(body.shopId)
-                elem.shopId=body.shopId
+                elem.shopId=body.shopId;
+            if(body.godownId)
+                elem.godownId=body.godownId;
             if(body.medicines){
                 elem.medicines=body.medicines;
                 console.log('medicines')
@@ -155,6 +165,7 @@ function changeMedicine(medicines){
                 console.log('cost')
                 if(elem.quantity<=10){
                     cost = cost +(elem.quantity* data.unitPrice);
+                    elem['unitPrice']=data.unitPrice;
                     console.log(cost);
                 }
                 else if(elem.quantity>10){

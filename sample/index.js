@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const routes = require('./src/routes/routes');
 const bodyParser = require('body-parser');
-let port = 3005;
+let port = 3004;
 app.use(bodyParser.json());
 app.use('/api',routes)
 

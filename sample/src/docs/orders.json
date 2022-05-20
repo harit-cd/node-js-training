@@ -54,12 +54,75 @@
     "customerId": 4,
     "shopId": 2,
     "orderId": 4,
-    "date": "19-5-2022"
+    "date": "19-5-2022",
+    "medicines": [
+      {
+        "id": 7,
+        "quantity": 9,
+        "unitPrice": 5
+      },
+      {
+        "id": 2,
+        "quantity": 10,
+        "unitPrice": 10
+      }
+    ],
+    "totalCost": 145
   },
   {
     "customerId": 4,
     "shopId": 2,
     "orderId": 5,
-    "date": "19-5-2022"
+    "date": "19-5-2022",
+    "medicines": [
+      {
+        "id": 5,
+        "quantity": 4,
+        "unitPrice": 2
+      }
+    ],
+    "totalCost": 8
+  },
+  {
+    "shopId": 2,
+    "customerId": "1",
+    "orderId": 8,
+    "date": "20-5-2022",
+    "medicines": [
+      {
+        "id": 10,
+        "quantity": 7
+      },
+      {
+        "id": 2,
+        "quantity": 8
+      },
+      {
+        "id": 12,
+        "quantity": 5
+      }
+    ],
+    "totalCost": 370
+  },
+  {
+    "shopId": 3,
+    "customerId": "2",
+    "orderId": 9,
+    "date": "20-5-2022",
+    "medicines": [
+      {
+        "id": 10,
+        "quantity": 7
+      },
+      {
+        "id": 2,
+        "quantity": 8
+      },
+      {
+        "id": 12,
+        "quantity": 5
+      }
+    ],
+    "totalCost": 370
   }
 ]

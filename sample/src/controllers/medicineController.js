@@ -7,7 +7,7 @@ function addMedicines(req,res){
     res.send(result)
 }
 function listMedicines(req,res){
-    let result = medicineUtils.list(medicineData,req.body)
+    let result = medicineUtils.list(req.body)
     res.send(result);
 }
 function getExpired(req,res){

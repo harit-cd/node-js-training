@@ -6,7 +6,7 @@ const constant = require('../helper/constant');
 function medicineValidator(req,res,next){
     let body = req.body;
     if(!body.name||!body.expiryDate||!body.manufactureDate||!body.company
-        ||!body.unitPrice){
+        ||!body.unitPrice||!body.medicineType){
             let resp = responseBuilder.error(constant.validator.noValue);
             res.send(resp);
     }
