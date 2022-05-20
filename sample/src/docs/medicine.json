@@ -33,11 +33,11 @@
     "name": "ceterzine",
     "expiryDate": "1-10-2023",
     "manufactureDate": "10-20-2021",
-    "company": "Cipla",
+    "company": "Sun pharma",
     "unitPrice": 2,
     "medicineType": "antihistamine",
     "id": 4,
-    "status": "expired"
+    "status": "active"
   },
   {
     "name": "Dolo-650",
@@ -101,8 +101,8 @@
   },
   {
     "name": "Nizatidine",
-    "expiryDate": "1-01-2024",
-    "manufactureDate": "20-10-2022",
+    "expiryDate": "1-10-2023",
+    "manufactureDate": "10-20-2021",
     "company": "Sun Pharma",
     "unitPrice": "17",
     "medicineType": "antacids",

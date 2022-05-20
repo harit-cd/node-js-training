@@ -90,6 +90,8 @@ function expired(){
             elem['status']='expired';
             value.push(elem);
         }
+        else if(expDate>currentDate)
+            elem['status']='active'
     }
     let data = JSON.stringify(medicineData,null,2);
     ping.writeData(path,data)

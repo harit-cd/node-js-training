@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const medicineController = require('../../controllers/medicineController');
+const medicineController = require('../../controllers/medicineController/medicineController');
 const medicineMiddleware = require('../../middleware/medicineMiddleware')
 router.post('/add',medicineMiddleware.repetationValidator,
                 medicineMiddleware.medicineValidator,medicineController.addMedicines);

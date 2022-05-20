@@ -1,6 +1,6 @@
 const express = require('express');
-const ordersUtils = require('../utils/ordersUtils');
-const ordersData = require('../docs/orders.json');
+const ordersUtils = require('../../utils/ordersUtils');
+const ordersData = require('../../docs/orders.json');
 
 function addOrders(req,res){
     let body = req.body;
