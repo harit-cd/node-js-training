@@ -6,6 +6,7 @@
     "company": "Cipla",
     "unitPrice": 2,
     "medicineType": "analgesis",
+    "wholesalePrice":1,
     "id": 1,
     "status": "expired"
   },
@@ -16,6 +17,7 @@
     "company": "Cipla",
     "unitPrice": 10,
     "medicineType": "antibiotics",
+    "wholesalePrice":5,
     "id": 2,
     "status": "expired"
   },
@@ -25,6 +27,7 @@
     "manufactureDate": "1-20-2022",
     "company": "Lupin",
     "unitPrice": 7,
+    "wholesalePrice":3,
     "medicineType": "anti-inflamatory",
     "id": 3,
     "status": "active"
@@ -34,7 +37,8 @@
     "expiryDate": "1-10-2023",
     "manufactureDate": "10-20-2021",
     "company": "Sun pharma",
-    "unitPrice": 2,
+    "unitPrice": 10,
+    "wholesalePrice":5,
     "medicineType": "antihistamine",
     "id": 4,
     "status": "active"
@@ -45,6 +49,7 @@
     "manufactureDate": "1-20-2022",
     "company": "Lupin",
     "unitPrice": 2,
+    "wholesalePrice":1,
     "medicineType": "analgesis",
     "id": 5,
     "status": "active"
@@ -54,7 +59,8 @@
     "expiryDate": "5-4-2023",
     "manufactureDate": "1-20-2019",
     "company": "Dr Reddy's Laboratories",
-    "unitPrice": "12",
+    "unitPrice": 12,
+    "wholesalePrice":7,
     "medicineType": "anti-fungal",
     "id": 6,
     "status": "active"
@@ -65,6 +71,7 @@
     "manufactureDate": "20-10-2021",
     "company": "Lupin",
     "unitPrice": 5,
+    "wholesalePrice":2,
     "medicineType": "antacids",
     "id": 7,
     "status": "active"
@@ -74,7 +81,8 @@
     "expiryDate": "12-20-2023",
     "manufactureDate": "20-10-2022",
     "company": "Lupin",
-    "unitPrice": "30",
+    "unitPrice": 30,
+    "wholesalePrice":20,
     "medicineType": "anesthesia",
     "id": 8,
     "status": "active"
@@ -84,7 +92,8 @@
     "expiryDate": "30-07-2023",
     "manufactureDate": "20-10-2022",
     "company": "Divi's Laboratories",
-    "unitPrice": "19",
+    "unitPrice": 19,
+    "wholesalePrice":10,
     "medicineType": "anesthesia",
     "id": 9,
     "status": "active"
@@ -94,7 +103,8 @@
     "expiryDate": "30-07-2023",
     "manufactureDate": "20-10-2022",
     "company": "Sun Pharma",
-    "unitPrice": "20",
+    "unitPrice": 20,
+    "wholesalePrice":11,
     "medicineType": "anesthesia",
     "id": 10,
     "status": "active"
@@ -104,7 +114,8 @@
     "expiryDate": "1-10-2023",
     "manufactureDate": "10-20-2021",
     "company": "Sun Pharma",
-    "unitPrice": "17",
+    "unitPrice": 17,
+    "wholesalePrice":8,
     "medicineType": "antacids",
     "id": 11,
     "status": "active"
@@ -114,7 +125,8 @@
     "expiryDate": "1-10-2023",
     "manufactureDate": "20-10-2022",
     "company": "Sun Pharma",
-    "unitPrice": "30",
+    "unitPrice": 30,
+    "wholesalePrice":15,
     "medicineType": "antibiotics",
     "id": 12,
     "status": "active"
@@ -124,7 +136,8 @@
     "expiryDate": "1-10-2023",
     "manufactureDate": "20-10-2022",
     "company": "Lupin",
-    "unitPrice": "15",
+    "unitPrice": 15,
+    "wholesalePrice":9,
     "medicineType": "antibiotics",
     "id": 13,
     "status": "active"
@@ -135,6 +148,7 @@
     "manufactureDate": "20-10-2022",
     "company": "Lupin",
     "unitPrice": 5,
+    "wholesalePrice":3,
     "medicineType": "anti-inflamatory",
     "id": 14,
     "status": "active"
@@ -145,6 +159,7 @@
     "manufactureDate": "20-10-2022",
     "company": "Cipla",
     "unitPrice": 15,
+    "wholesalePrice":6,
     "medicineType": "anti-inflamatory",
     "id": 15,
     "status": "active"

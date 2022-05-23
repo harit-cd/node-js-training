@@ -3,22 +3,29 @@ const responseBuilder =require('../helper/responseBuilder');
 const constant = require('../helper/constant');
 function ordersValidator(req,res,next){
     let body = req.body;
-    if(body.customerId){
-        if(!body.shopId){
-            let resp = responseBuilder.error(constant.validator.noValue);
-            res.send(resp);
+        if(body.customerId){
+            if(!body.shopId){
+                let resp = responseBuilder.error(constant.validator.noValue);
+                res.send(resp);
+            }
+            else{
+                body['godownId']=null;
+                next();
+            }
+                
         }
-        else
-            next();
-    }
     else if(body.godownId){
-        if(!body.shopId){
-            let resp = responseBuilder.error(constant.validator.noValue);
-            res.send(resp);
-        }
-        else
-            next();
+            if(!body.shopId){
+                let resp = responseBuilder.error(constant.validator.noValue);
+                res.send(resp);
+            }
+            else{
+                body['customerId']=null;
+                next();
+            }
     }
+    else
+        res.send(responseBuilder.error(constant.validator.noValue));
     
 }
 function modifyValidator(req,res,next){

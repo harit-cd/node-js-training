@@ -26,26 +26,55 @@ function medicineCal(body){
     let cost =0;
     let value=[];
     let finalData=[];
-    // if(body.godownId){
-    //     let godownId = body.godownId;
-    // }
-    
+    let num=0;
     for(let elem of body.medicines){
         value.push(elem);
     }
-    for(let data of medicineData){
-        for(let elem of value){
-            if(elem.id==data.id){
-                console.log('cost')
-                if(elem.quantity<=10){
-                    cost = cost +(elem.quantity* data.unitPrice);
-                    console.log(cost)
+    for(let elem of ordersData){
+        if(orderId==elem.orderId){
+            if(elem.customerId!=null){
+                num =2;
+            }
+            else 
+                num = 1;
+        }
+    }
+    if(num==1){
+        console.log('godown data')
+        for(let data of medicineData){
+            for(let elem of value){
+                if(elem.id==data.id){
+                    console.log('cost')
+                    if(elem.quantity<=1000){
+                        cost = cost +(elem.quantity* data.wholesalePrice);
+                        elem['wholesale']=data.wholesalePrice;
+                        console.log(cost)
+                    }
+                    else if(elem.quantity>1000){
+                        let resp=responseBuilder.error(constant.medicine.exceedQuantity);
+                        return resp;
+                    }
+                    
                 }
-                else if(elem.quantity>10){
-                    let resp=responseBuilder.error(constant.medicine.exceedQuantity);
-                    return resp;
+            }
+        }
+    }
+    else if(num==2){
+        for(let data of medicineData){
+            for(let elem of value){
+                if(elem.id==data.id){
+                    console.log('cost')
+                    if(elem.quantity<=10){
+                        cost = cost +(elem.quantity* data.unitPrice);
+                        elem['unitPrice']=data.unitPrice;
+                        console.log(cost)
+                    }
+                    else if(elem.quantity>10){
+                        let resp=responseBuilder.error(constant.medicine.exceedQuantity);
+                        return resp;
+                    }
+                    
                 }
-                
             }
         }
     }
